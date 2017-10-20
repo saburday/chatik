@@ -4,7 +4,11 @@ const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
 const server = require('http').Server(app);
-var io = require('socket.io')(server);
+const io = require('socket.io')(server, {serveClient: true});
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/chatik', {});
+mongoose.Promise = require('bluebird');
 
 nunjucks.configure('./client/views', {
     autoescape: true,
@@ -17,6 +21,8 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-app.listen(7777, '0.0.0.0', () => {
+require('./sockets')(io);
+
+server.listen(7777, '0.0.0.0', () => {
   console.log('Server started on port 7777');
 });
