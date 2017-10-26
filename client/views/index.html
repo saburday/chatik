@@ -1,60 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Node chat</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Item - Start Bootstrap Template</title>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!--<link rel="stylesheet" href="./assets/css/style.css">-->
+    <!-- Bootstrap Core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./assets/css/portfolio-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     {% if not error %}
         <script src='/socket.io/socket.io.js'></script>
     {% endif %}
 </head>
+
 <body>
-    {% if error %}
-        <h3 class="error"> {{ error }} </h3>
-        <div class="login-page">
-            <div class="form">
-                <div style="margin-top: 18px;">
-                    <form class="register" method="post" style="display: none;">
-                        <input type="text" name="username" placeholder="username"/>
-                        <input type="password" name="password" placeholder="password"/>
-                        <button type="submit">create</button>
-                        <p class="message">Already registered? <a href="#">Sign In</a></p>
-                    </form>
-                    <form class="login" method="post">
-                        <input type="text" name="username" placeholder="username"/>
-                        <input type="password" name="password" placeholder="password"/>
-                        <button type="submit">login</button>
-                        <p class="message">Not registered? <a href="#">Create an account</a></p>
-                    </form>
+
+      <!-- Navigation -->
+
+	<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+			<div class="container topnav">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand topnav" href="index.php">ПКЦ "ЯХТА"</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+									<li>
+											<a href="#about">About</a>
+									</li>
+									<li>
+											<a href="#services">Services</a>
+									</li>
+									<li>
+											<a href="#contact">Contact</a>
+									</li>
+							</ul>
+         <div class="links">
+            <ul class="nav navbar-nav navbar-right">
+
+						</ul>
+         </div>
+
+            <form class="navbar-form navbar-right">
+              <div class="input-group">
+                <div class="search">
+                  <form method="GET" >
+                     <p> <input name="search" type="text" id= "search" /> <input type="submit" name="rezult" value="Поиск"/> </p> <span id="search_ajax"> </span>
+              	  </form>
                 </div>
+              </div>
+            </form>
+			 </div>
+
+			<!-- /.navbar-collapse -->
+			</div>
+
+	<!-- /.container -->
+	</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Portfolio Item
+                    <small>Item Subheading</small>
+                </h1>
             </div>
         </div>
-        <script src="/assets/js/unauth.js"></script>
-    {% else %}
-        <div class="container clearfix">
-            <div class="chat">
-                <div class="chat-header clearfix">
-                    <div class="chat-about">
-                        <div class="chat-num-users">Hello, <span id="name">{{ username }}</span></div>
-                    </div>
-                    <div class="controls">
-                        <a href="#" class="logout-btn">Logout</a>
-                    </div>
-                </div>
+        <!-- /.row -->
 
-                <div class="chat-history">
-                    <ul>
-                    </ul>
-                </div>
+        <!-- Portfolio Item Row -->
+        <div class="row">
 
-                <div class="chat-message clearfix">
-                    <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
-                    <button type="submit">Send</button>
+            <div class="col-md-8">
+                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+            </div>
+
+            <div class="col-md-4">
+                <h3>Project Description</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                <h3>Project Details</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        {% if error %}
+            <!--<h3 class="error"> {{ error }} </h3>-->
+            <div class="login-page">
+                <div class="form">
+                    <div style="margin-top: 18px;">
+                        <form class="register" method="post" style="display: none;">
+                            <input type="text" name="username" placeholder="username"/>
+                            <input type="password" name="password" placeholder="password"/>
+                            <button type="submit">create</button>
+                            <p class="message">Already registered? <a href="#">Sign In</a></p>
+                        </form>
+                        <form class="login" method="post">
+                            <input type="text" name="username" placeholder="username"/>
+                            <input type="password" name="password" placeholder="password"/>
+                            <button type="submit">login</button>
+                            <p class="message">Not registered? <a href="#">Create an account</a></p>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script src="/assets/js/auth.js"></script>
-    {% endif %}
+            <script src="/assets/js/unauth.js"></script>
+        {% else %}
+            <div class="container clearfix">
+                <div class="chat">
+                    <div class="chat-header clearfix">
+                        <div class="chat-about">
+                            <div class="chat-num-users">Hello, <span id="name">{{ username }}</span></div>
+                        </div>
+                        <div class="controls">
+                            <a href="#" class="logout-btn">Logout</a>
+                        </div>
+                    </div>
+
+                    <div class="chat-history">
+                        <ul>
+                        </ul>
+                    </div>
+
+                    <div class="chat-message clearfix">
+                        <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
+                        <button type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+            <script src="/assets/js/auth.js"></script>
+        {% endif %}
+<hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="/assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
