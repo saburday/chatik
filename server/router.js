@@ -10,7 +10,14 @@ const jwt = require('jsonwebtoken');
 
 function checkAuth (req, res, next) {
     passport.authenticate('jwt', { session: false }, (err, decryptToken, jwtError) => {
-        if(jwtError != void(0) || err != void(0)) return res.render('index.html', { error: err || jwtError});
+        if(jwtError != void(0) || err != void(0)) return res.render('yh_bzik50.html', { error: err || jwtError});
+        req.user = decryptToken;
+        next();
+    })(req, res, next);
+}
+function checkAutht75 (req, res, next) {
+    passport.authenticate('jwt', { session: false }, (err, decryptToken, jwtError) => {
+        if(jwtError != void(0) || err != void(0)) return res.render('yh_t75.html', { error: err || jwtError});
         req.user = decryptToken;
         next();
     })(req, res, next);
@@ -27,8 +34,17 @@ function createToken (body) {
 module.exports = app => {
     app.use('/assets', express.static('./client/public'));
 
-    app.get('/', checkAuth, (req, res) => {
-        res.render('index.html', { username: req.user.username });
+    app.get('/',  (req, res) => {
+        res.render('index.html');
+    });
+    app.get('/yachts', (req, res) => {
+        res.render('yachts.html');
+    });
+    app.get('/yh_bzik50', checkAuth, (req, res) => {
+        res.render('yh_bzik50.html', { username: req.user.username });
+    });
+    app.get('/yh_t75', checkAutht75, (req, res) => {
+        res.render('yh_t75.html', { username: req.user.username });
     });
 
     app.post('/login', async (req, res) => {
